@@ -22,6 +22,7 @@ function clearAll() {
 
 function backSpace() {
   currentOperand = currentOperand.toString().slice(0, -1);
+  changeSize();
 }
 
 function percent() {
@@ -155,9 +156,14 @@ function changeSize() {
   if (currentText.clientWidth + previousText.clientWidth > 250) {
     output.style.fontSize = "35px";
   }
+  if (
+    currentText.clientWidth + previousText.clientWidth < 250 &&
+    output.style.fontSize === "35px"
+  ) {
+    output.style.fontSize === "50px";
+  }
   if (currentText.clientWidth + previousText.clientWidth > 253) {
     output.style.fontSize = "25px";
   }
 }
 display();
-changeSize();
