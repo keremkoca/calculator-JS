@@ -41,10 +41,17 @@ function display() {
   if (currentOperand === "" && operation === undefined) {
     currentText.innerHTML = "0";
   }
+  if (currentOperand !== "") {
+    operation === undefined;
+  }
 }
 
 function apendNumber(num) {
   if (num === "." && currentOperand.includes(".")) return;
+  if (num === "." && currentText.innerHTML === "0") {
+    currentOperand = "0";
+  }
+  if (num === "0" || currentOperand === "0") return;
   currentOperand = currentOperand + num;
 }
 
@@ -83,6 +90,7 @@ function calc() {
     }
 
   currentOperand = result;
+  result = "";
   operation = undefined;
   previousOperand = "";
 }
@@ -96,8 +104,13 @@ numbers.forEach((number) => {
 
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
-    selectOpr(operator.innerHTML);
-    display();
+    if (currentOperand !== "" && previousOperand !== "") {
+      calc();
+      display();
+    } else {
+      selectOpr(operator.innerHTML);
+      display();
+    }
   });
 });
 equalsBtn.addEventListener("click", () => {

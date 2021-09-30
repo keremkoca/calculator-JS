@@ -3,21 +3,27 @@
   margin: 0;
   padding: 0;
 }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .calculator {
-  width: 575px;
-  height: 460px;
-  background-color: gray;
-  border: 2px solid gray;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  margin: auto;
+  background-color: rgb(42, 41, 41);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgb(42, 41, 41);
+  border-radius: 15px;
   margin-top: 20px;
   font-family: "Source Sans Pro", sans-serif;
 }
 .output {
-  margin-right: 40px;
-  height: 75px;
-  background-color: gray;
+  color: white;
+  margin-bottom: 3px;
+  padding-right: 20px;
+  height: 100px;
   font-size: 50px;
   display: flex;
   justify-content: flex-end;
@@ -25,15 +31,28 @@
 }
 .buttons {
   display: grid;
-  grid-template-columns: 150px 150px 150px 125px;
-  grid-gap: 1px;
-  box-sizing: border-box;
-  height: 385px;
+  grid-template-columns: 75px 75px 75px 75px;
+  grid-gap: 2px;
+  font-weight: bold;
+  color: black;
   cursor: pointer;
 }
+.btn:active {
+  transform: scale(0.98);
+}
+.operator:hover {
+  background: rgb(137, 3, 3);
+}
+.btn {
+  height: 75px;
+}
+
+.func:hover {
+  background-color: rgb(210, 208, 208);
+}
 .func {
-  background-color: rgba(255, 255, 255, 0.8);
-  outline: 1px solid rgba(0, 0, 0, 0.8);
+  background-color: rgb(132, 132, 132);
+  color: rgb(42, 41, 41);
   padding: 10px;
   font-size: 20px;
   display: flex;
@@ -41,32 +60,37 @@
   align-items: center;
 }
 .number {
-  background-color: rgba(48, 46, 46, 0.288);
-  outline: 1px solid rgba(0, 0, 0, 0.8);
+  background-color: rgb(235, 235, 235);
+  color: rgb(42, 41, 41);
   padding: 10px;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.number:hover {
+  background-color: rgb(210, 208, 208);
 }
 .operator {
-  background-color: rgba(245, 163, 10, 0.582);
-  outline: 1px solid rgba(0, 0, 0, 0.8);
+  background-color: rgb(245, 163, 10);
   padding: 10px;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#equals {
-  background-color: rgba(245, 163, 10, 0.582);
-  outline: 1px solid rgba(0, 0, 0, 0.8);
+.operator-equals {
+  background-color: rgb(245, 163, 10);
   padding: 10px;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.operator-equals:hover {
+  background: rgb(137, 3, 3);
+}
+
 .num-zero {
   grid-column: span 2;
 }
