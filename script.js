@@ -17,6 +17,7 @@ function clearAll() {
   previousOperand = "";
   currentOperand = "";
   operation = undefined;
+  output.style.fontSize = "50px";
 }
 
 function backSpace() {
@@ -97,6 +98,7 @@ function calc() {
 
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
+    changeSize();
     apendNumber(number.innerHTML);
     display();
   });
@@ -110,6 +112,7 @@ operators.forEach((operator) => {
     } else {
       selectOpr(operator.innerHTML);
       display();
+      changeSize();
     }
   });
 });
@@ -143,5 +146,18 @@ funcBtns.forEach((btn) => {
     }
   });
 });
+const output = document.querySelector(".output");
 
+function changeSize() {
+  const outputWidth = currentText.clientWidth + previousText.clientWidth;
+  console.log(outputWidth);
+  console.log(output.style.fontSize);
+  if (currentText.clientWidth + previousText.clientWidth > 250) {
+    output.style.fontSize = "35px";
+  }
+  if (currentText.clientWidth + previousText.clientWidth > 253) {
+    output.style.fontSize = "25px";
+  }
+}
 display();
+changeSize();
